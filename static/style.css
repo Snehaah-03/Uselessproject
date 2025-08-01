@@ -1,0 +1,243 @@
+/* Reset & Font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Body Gradient Background */
+body {
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Grain Overlay */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  opacity: 0.07;
+  z-index: 1;
+  animation: grainMove 1s steps(10) infinite;
+}
+
+@keyframes grainMove {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-1px, 1px); }
+  50% { transform: translate(1px, -1px); }
+  75% { transform: translate(-1px, -1px); }
+}
+
+/* Container Styling */
+.container {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px 30px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Headings & Text */
+h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #e91e63;
+}
+
+p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #444;
+}
+
+label {
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+}
+
+/* File Input */
+input[type="file"] {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+/* Button Styling */
+button {
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  color: white;
+  padding: 12px 24px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 117, 140, 0.4);
+}
+
+/* Love Result */
+.result {
+  margin-top: 25px;
+  font-size: 20px;
+  padding: 15px;
+  border-radius: 15px;
+  font-weight: 600;
+}
+
+.love {
+  background-color: rgba(255, 105, 135, 0.2);
+  color: #c2185b;
+}
+
+.no-love {
+  background-color: rgba(200, 200, 200, 0.2);
+  color: #444;
+}
+
+/* Chatbot Box */
+.chatbot {
+  margin-top: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px dashed #ff7eb3;
+}
+
+.chatbot h3 {
+  margin-bottom: 15px;
+  color: #e91e63;
+}
+
+.chatbot input[type="text"] {
+  padding: 10px;
+  width: 70%;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.chatbot button {
+  padding: 10px 16px;
+  background: #ff4081;
+}
+
+/* Disclaimer */
+.disclaimer {
+  font-size: 12px;
+  margin-top: 30px;
+  color: #666;
+  font-style: italic;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px;
+  line-height: 1.5;
+}
+
+/* Footer Text */
+h4, h5 {
+  z-index: 2;
+  text-align: center;
+  margin-top: 30px;
+  color: #880e4f;
+  font-weight: 600;
+  max-width: 80%;
+  line-height: 1.4;
+}
+
+h5 {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+/* Responsive Fix */
+@media screen and (max-width: 500px) {
+  .container {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+#heart-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  transform: rotate(45deg);
+  animation: floatUp linear forwards;
+  opacity: 0.9;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: -10px;
+  top: 0;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Eyes, Chicos, Never Lie</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- Heart particles only when love is detected -->
+  {% if result == "love" %}
+    <div id="heart-container"></div>
+    <script src="{{ url_for('static', filename='hearts.js') }}"></script>
+  {% endif %}
+
+  <div class="container">
+    <h1>👁️ Eyes, Chicos, Never Lie</h1>
+    <p>She might be tell , but our AI will!!</p>
+
+    <!-- Upload Form -->
+    <form method="POST" enctype="multipart/form-data">
+      <label for="image">Upload Her Image 👀</label><br>
+      <input type="file" name="image" accept="image/*" required>
+      <br>
+      <button type="submit">Detect Love 💘</button>
+    </form>
+
+    <!-- Detection Results -->
+    {% if result == "love" %}
+      <div class="result love">
+        <h2>❤️ Love Detected!</h2>
+        <audio controls>
+  <source src=".static/audio/bgm.mp3" type="audio/mpeg">
+</audio>
+
+      </div>
+    {% elif result == "no-love" %}
+      <div class="result no-love">
+        <h2>💔 Sorry bro...</h2>
+        <p>Try again after a haircut ✂️</p>
+      </div>
+    {% endif %}
+
+    <hr>
+
+    <!-- Chatbot -->
+    <div class="chatbot">
+      <h3>Need Advice from DesperateBot 💬</h3>
+      <form method="POST">
+        <input type="text" name="user_message" placeholder="Bro, how to propose?" required>
+        <button type="submit">Ask</button>
+      </form>
+
+      {% if user_message %}
+        <p><strong>You:</strong> {{ user_message }}</p>
+        <p><strong>DesperateBot:</strong> {{ chatbot_reply }}</p>
+      {% endif %}
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="disclaimer">
+      <p>⚠️ Disclaimer: This model is 99.99% accurate. Trust issues? Ask her yourself. 🤷‍♂️ (Always try to use images with eyes, otherwise may get rejected 🤭. Nahh naah! No need to doubt — we try to give you perfect assumptions just like how your homies investigate!)</p>
+    </div>
+  </div>
+
+  <br><br>
+
+</body>
+</html>
